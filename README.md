@@ -1,39 +1,75 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
+## User Stories and Tasks
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Database Schema
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
+## Testing
 
-## Codeanywhere Reminders
+## Technologies Used
+- ### Languages and frameworks
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- ### Packages Used
+    - cloudinary
+    - cloudinary storage
+    - Pillow
+    - django-rest-framework
+    - dj-rest-auth
 
-`python3 -m http.server`
+- ### Programs and tools
+    - drawSQL
+    - GitPod for development
+    - GitHub to store project
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- ### Modules in GitPod Used
+    - Prettier
+    - eslint
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## Event model
 
-`http_server`
+owner = models.ForeignKey(User, on_delete=models.CASCADE)   
+created_at = models.DateTimeField(auto_now_add=True)    
+updated_at = models.DateTimeField(auto_now=True)    
+title = models.CharField(max_length=255, blank=False)   
+description = models.TextField(blank=False)   
+start_date = models.DateTimeField(blank=False)    
+category = models.CharField(max_length=255, blank=False)    
+location = models.CharField(max_length=255, blank=False)    
+cost = models.DecimalField(max_digits=8, decimal_places=2)    
+image = models.ImageField()    
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Profile model
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+owner = models.OneToOneField(User, on_delete=models.CASCADE)    
+created_at = models.DateTimeField(auto_now_add=True)    
+updated_at = models.DateTimeField(auto_now=True)    
+name = models.CharField(max_length=255, blank=True)   
+content = models.TextField(blank=True)    
+image = models.ImageField()    
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+## Deploying with Heroku
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+It's a prerequisite that you have Cloudinary account before deployment.
+A Cloudinary account, create one for free at https://cloudinary.com.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
-
-Happy coding!
+1. Log in to Heroku and if not taken there automatically, navigate to your personal app dashboard.
+2. At the top of the page locate the 'New' drop down, click it and then select 'Create new app'.
+3. Give your application a unique name, select a region appropriate to your location and click the 'Create app' button.
+4. Your app should now be created, so from the menu towards the top of the page select the 'Resources' section.
+5. Search for 'Heroku Postgres' under the Add-ons section and add it.
+6. From the menu towards the top of the page select the 'Settings' section and lick 'Reveal Config Vars' in the Config vars section. Enter the following key / value pairings:
+- Key as ALLOWED_HOSTS and the value as the name of you project with '.herokuapp.com' appended to the end e.g. example-app.herokuapp.com. Click the Add button.
+- Key as CLOUDINARY_URL and the value as your cloudinary API Environment variable e.g. cloudinary://**************:**************@*********. Click the Add button.
+- Key as SECRET_KEY and the value as a complex string which will be used to provide cryptographic signing. The use of a secret key generator is recommended.
+- Ensure the key DATABASE_URL is already populated. This should have been created automatically by Heroku.
+- To make authenticated requests to this API (e.g. from a fontend application) you are required to add the key CLIENT_ORIGIN with the value set as the URL you will be sending the authentication request from.
+- CLIENT_ORIGIN_DEV key can be set with the value of a development server (IP or URL) for use during local development.
+7. Open the .env file in the project directory and delete the key / value pair DEV_ENVIRONMENT_DATABASE = True before saving the file. This can be added back after the next step to ensure local development changes will not alter the remote database.
+8. Navigate to the 'Deploy' page using the menu towards the top of the page.
+9. Select 'GitHub' from the 'Deployment method' section and you will be prompted to 'Connect to GitHub'.
+10. Once connected to your GitHub account you will be able to search for your repository which contains the forked 'property-direct-backend' repository.
+11. Once the repository is found click 'Connect'.
+12. At the bottom of the page find the section named 'Manual deploy', select the 'main' branch in the drop down and click the 'Deploy' button.
+13. Once deployment is complete, click the 'View' button to load the URL of the deployed application.
