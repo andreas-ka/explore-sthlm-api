@@ -11,5 +11,11 @@
 [] User can update event own event
 [] User can not update others events
 
-[] User can delete event own event
+[] User can delete event if they own the event
 [] User can not delete others events
+
+[] Can retrieve review using valid id
+[] Can not retrieve review using invalid id
+
+[] User can delete review if they own the review
+[] User can not delete others reviews
