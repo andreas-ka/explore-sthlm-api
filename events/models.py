@@ -13,6 +13,7 @@ class Event(models.Model):
     title = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=False)
     start_date = models.DateTimeField(blank=False)
+    end_date = models.DateTimeField(blank=False)
     category = models.CharField(max_length=255, blank=False)
     location = models.CharField(max_length=255, blank=False)
     cost = models.DecimalField(max_digits=8, decimal_places=2)
