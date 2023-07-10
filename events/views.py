@@ -8,7 +8,7 @@ from explore_sthlm_api.permissions import IsOwnerOrReadOnly
 
 
 class EventList(APIView):
-    """ List events """
+    """ List all events and checks permissions """
     serializer_class = EventSerializer
     permission_classes = [ 
         permissions.IsAuthenticatedOrReadOnly
