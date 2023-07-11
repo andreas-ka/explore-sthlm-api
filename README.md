@@ -48,6 +48,22 @@ name = models.CharField(max_length=255, blank=True)
 content = models.TextField(blank=True)    
 image = models.ImageField()    
 
+## Rating model
+
+rating = models.IntegerField()    
+event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='ratings')    
+owner = models.ForeignKey(User, on_delete=models.CASCADE)   
+created_at = models.DateTimeField(auto_now_add=True)  
+
+## Review model
+
+owner = models.ForeignKey(User, on_delete=models.CASCADE)    
+review = models.ForeignKey(Event, on_delete=models.CASCADE)    
+created_at = models.DateTimeField(auto_now_add=True)   
+updated_at = models.DateTimeField(auto_now=True)   
+body = models.TextField(blank=False)   
+social_media = models.TextField()    
+
 
 ## Deploying with Heroku
 

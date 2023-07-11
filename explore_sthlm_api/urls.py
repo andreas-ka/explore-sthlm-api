@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('profiles.urls')),
     path('', include('events.urls')),
     path('', include('reviews.urls')),
+    path('', include('ratings.urls')),
     
 ]
