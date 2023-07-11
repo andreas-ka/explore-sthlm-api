@@ -24,6 +24,7 @@ class ProfileList(generics.ListAPIView):
     ]
     filterset_fields = [
         'owner__following__followed__profile',
+        'owner__followed__owner__profile',
     ]
     ordering_fields = [
         'events_count',
