@@ -1,5 +1,34 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+## Table of Contents
+Project
+Objective
+Links to Deployed Project
+Project Structure
+Developer User Stories
+Profiles
+Events
+Followers
+Search and Filter
+Reviews
+Database Design
+Models
+Features
+Homepage
+Profile Data
+Events Data
+Followers Data
+Reviews Data
+Agile Workflow
+Github Project Board
+Testing
+Deployment
+Credits
+
+## Objective
+
+## Links to Deployed Project
+
 ## User Stories and Tasks
 
 ## Database Schema
@@ -56,6 +85,37 @@ owner = models.ForeignKey(User, on_delete=models.CASCADE)
 event = models.ForeignKey(Event, related_name='attend', on_delete=models.CASCADE)    
 created_at = models.DateTimeField(auto_now_add=True)    
 
+## Features
+
+### Homepage.    
+![screenshot](./images/root_route.png)    
+
+### Profile Data.   
+![screenshot](./images/profiles_list.png)   
+![screenshot](./images/profiles_detail.png)   
+
+### Events Data.   
+![screenshot](./images/events_list.png)    
+![screenshot](./images/events_detail.png)    
+
+### Reviews Data.    
+![screenshot](./images/reviews_list.png)   
+![screenshot](./images/reviews_detail.png)    
+
+### Attending Data.    
+![screenshot](./images/attend_list.png)    
+
+### Ratings Data.   
+![screenshot](./images/ratings_list.png)    
+![screenshot](./images/ratings_detail.png)   
+
+### Followers Data.   
+![screenshot](./images/followers_list.png)   
+![screenshot](./images/followers_detail.png)   
+
+## Agile Workflow
+Github Project Board
+
 ## Testing
 
 ## Technologies Used
@@ -81,8 +141,6 @@ created_at = models.DateTimeField(auto_now_add=True)
 - ### Modules in GitPod Used
     - Prettier
     - eslint
-
-
 
 
 ## Deploying with Heroku
