@@ -41,7 +41,7 @@ class EventList(generics.ListCreateAPIView):
 
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
-    """ 
+    """
     Shows details views of events, also handling error codes.
     Let's you get, edit, and delete events
     """

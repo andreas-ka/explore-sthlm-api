@@ -1,38 +1,87 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<a name="top"></a>
+![screenshot](./images/readme-logo.png)
 
 ## Table of Contents
-Project
-Objective
-Links to Deployed Project
-Project Structure
-Developer User Stories
-Profiles
-Events
-Followers
-Search and Filter
-Reviews
-Database Design
-Models
-Features
-Homepage
-Profile Data
-Events Data
-Followers Data
-Reviews Data
-Agile Workflow
-Github Project Board
-Testing
-Deployment
-Credits
+
+- [Objective](#objective)
+- [Links to Deployed Project](#links-to-deployed-project)
+- [User Stories and Tasks](#user-stories-and-tasks)
+- [Database Design](#database-schema)
+- [Models](#models-used-in-this-project-and-the-datafields)
+- [Features](#features)
+    - [Homepage](#homepage)
+    - [Profile Data](#profile-data)
+    - [Events Data](#events-data)
+    - [Reviews Data](#reviews-data)
+    - [Attending Data](#attending-data)
+    - [Ratings Data](#ratings-data)
+    - [Followers Data](#followers-data)
+- [Agile Workflow](#agile-workflow)
+- [Testing](#testing)
+- [Technologies Used](#technologies-used)
+- [Deploying with Heroku](#deploying-with-heroku)
+- [Credits](#credits)
 
 ## Objective
+Explore Sthlm, the website for people living in the capital city of Sweden but also tourists who are here for a visit. Stockholm is renowned for its vibrant cultural scene and dynamic events, and now you can stay connected with all the happenings in one convenient platform.
+
+The website allows users to explore a diverse range of events taking place across the city. From music concerts and art exhibitions to sports tournaments and food festivals, there's always something exciting to discover. With a user-friendly interface and powerful search options, finding events that match your interests has never been easier.
+
+Not only can you explore events, but you can also share promote your events to a wider audience. Whether you're organizing a small gathering or a large-scale festival, Explore Sthlm offers a space to showcase your event details and attract attendees.
+
+Engage with fellow event-goers by commenting/reviewing, rate, and sharing your favorite events. Connect with like-minded individuals, share recommendations, and build a vibrant community of event enthusiasts.
+
+[Back to Top](#top)
 
 ## Links to Deployed Project
 
+[Back to Top](#top)
+
 ## User Stories and Tasks
+- All User Storys for this backend API project. These are also in my project on GitHub that i made for this [project.](https://github.com/users/andreas-ka/projects/8)
+
+### Profile
+[x] As a developer/superuser I can view a list of profiles so that I can see all profiles thats been created. [#1](https://github.com/andreas-ka/explore-sthlm-api/issues/1)        
+[x] As a developer/superuser I can view the details of one profile so that I can see individual profile data. [#2](https://github.com/andreas-ka/explore-sthlm-api/issues/2)       
+[x] As a developer/superuser I can edit a profile when I am logged in so that update my personal information. [#3](https://github.com/andreas-ka/explore-sthlm-api/issues/3)      
+[x] As a developer/superuser I can delete a profile i own* so that I remove my account from the API. [#4](https://github.com/andreas-ka/explore-sthlm-api/issues/4)      
+[x] As a developer/superuser I can login and logout so that I can edit and delete data i have created. [#9](https://github.com/andreas-ka/explore-sthlm-api/issues/9)       
+
+### Events
+[x] As a developer/superuser I can view a list of all events so that I can see all events gathered in one view. [#5](https://github.com/andreas-ka/explore-sthlm-api/issues/5)       
+[x] As a developer/superuser I can view a single event so that I can see more details about that specific event. [#6](https://github.com/andreas-ka/explore-sthlm-api/issues/6)    
+[x] As a developer/superuser I can edit an event i own so that I can add or remove information. [#7](https://github.com/andreas-ka/explore-sthlm-api/issues/7)      
+[x] As a developer/superuser I can delete an event i own so that I can delete data from the API. [#8](https://github.com/andreas-ka/explore-sthlm-api/issues/8)         
+[x] As a developer/superuser I can create a new event so that I can share my events on the website. [#10](https://github.com/andreas-ka/explore-sthlm-api/issues/10)        
+
+### Reviews
+[x] As a developer/superuser I can review an event so that I can tell the owner my opinions.  [#11](https://github.com/andreas-ka/explore-sthlm-api/issues/11)    
+[x] As a developer/superuser I can view reviews on events so that I can see what other users thinks. [#12](https://github.com/andreas-ka/explore-sthlm-api/issues/12)    
+[x] As a developer/superuser I can edit my review so that I can update or remove information. [#13](https://github.com/andreas-ka/explore-sthlm-api/issues/13)    
+[x] As a developer/superuser I can delete my review so that I can remove my data from the API. [#14](https://github.com/andreas-ka/explore-sthlm-api/issues/14)       
+
+### Attend
+[x] As a developer/superuser I can click on attend on events so that I can show the owner im interested. [#15](https://github.com/andreas-ka/explore-sthlm-api/issues/15)     
+[x] As a developer/superuser I can change my attend status so that I can show the owner if i cant attend anymore. [#16](https://github.com/andreas-ka/explore-sthlm-api/issues/16)      
+
+### Follow and Followed
+[x] As a developer/superuser I can follow so that I can follow a specific user. [#17](https://github.com/andreas-ka/explore-sthlm-api/issues/17)    
+[x] As a developer/superuser I can see all my or others followers so that I can see mine others information. [#18](https://github.com/andreas-ka/explore-sthlm-api/issues/18)     
+[x] As a developer/superuser I can stop following a user if i dont want to follow anymore. [#19](https://github.com/andreas-ka/explore-sthlm-api/issues/19)     
+
+### Rating
+[x] As a developer/superuser I can rate specific events so that I can show the owner what i think. [#20](https://github.com/andreas-ka/explore-sthlm-api/issues/20)     
+[x] As a developer/superuser I can edit my rating of a event so that I can have the option if i change my mind. [#21](https://github.com/andreas-ka/explore-sthlm-api/issues/21)    
+[x] As a developer/superuser I can remove my rating of a event so that I can remove the data from the API. [#22](https://github.com/andreas-ka/explore-sthlm-api/issues/22)     
+
+[Back to Top](#top)
 
 ## Database Schema
-![screenshot](./images/drawSQL-explore-sthlm.png)
+![screenshot](./images/drawSQL-explore-sthlm.png)    
+
+[Back to Top](#top)
+
+## Models used in this project and the datafields.
 
 ## Event model
 
@@ -83,7 +132,9 @@ created_at = models.DateTimeField(auto_now_add=True)
 
 owner = models.ForeignKey(User, on_delete=models.CASCADE)    
 event = models.ForeignKey(Event, related_name='attend', on_delete=models.CASCADE)    
-created_at = models.DateTimeField(auto_now_add=True)    
+created_at = models.DateTimeField(auto_now_add=True)   
+
+[Back to Top](#top)
 
 ## Features
 
@@ -113,13 +164,29 @@ created_at = models.DateTimeField(auto_now_add=True)
 ![screenshot](./images/followers_list.png)   
 ![screenshot](./images/followers_detail.png)   
 
+[Back to Top](#top)
+
 ## Agile Workflow
-Github Project Board
+### Github Project Board
+I utilized the Kanban project board on GitHub to develop this API using Agile principles right from the start. The project board allowed me to create user stories that served as guidelines for me to follow and test during the development process.
+
+To effectively manage the project, I created a Milestone for each app (model) I developed. These milestones helped me outline the individual sprints of the project. Within each milestone, I included the relevant user stories for the developers to work on. By adopting this approach, I ensured a structured and iterative development process.
+![screenshot](./images/user_storys_kanban.png)    
+![screenshot](./images/user_storys_issues.png)   
+
+[Back to Top](#top)
+
 
 ## Testing
+I refer to [TESTING.md](/TESTING.md) for all my tests in this project.
 
 ## Technologies Used
-- ### Languages and frameworks
+
+- ### Languages
+    - Python
+
+- ### Framework
+    - Django Rest Framework
 
 - ### Packages Used
     - cloudinary
@@ -137,11 +204,14 @@ Github Project Board
     - drawSQL
     - GitPod for development
     - GitHub to store project
+    - Heroku.com
+    - Cloudinary.com
 
 - ### Modules in GitPod Used
     - Prettier
     - eslint
 
+[Back to Top](#top)
 
 ## Deploying with Heroku
 
@@ -168,3 +238,10 @@ A Cloudinary account, create one for free at https://cloudinary.com.
 11. Once the repository is found click 'Connect'.
 12. At the bottom of the page find the section named 'Manual deploy', select the 'main' branch in the drop down and click the 'Deploy' button.
 13. Once deployment is complete, click the 'View' button to load the URL of the deployed application.
+
+
+## Credits
+- My awesome wife Sandra who is a copywriter by profession who helped me with the Objective text.
+- *HUGE* credit to Code Institute and their tutorial on how to build an API, loads of code from that.    
+
+[Back to Top](#top)
