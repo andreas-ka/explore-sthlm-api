@@ -3,27 +3,7 @@
 ## User Stories and Tasks
 
 ## Database Schema
-
-## Testing
-
-## Technologies Used
-- ### Languages and frameworks
-
-- ### Packages Used
-    - cloudinary
-    - cloudinary storage
-    - Pillow
-    - django-rest-framework
-    - dj-rest-auth
-
-- ### Programs and tools
-    - drawSQL
-    - GitPod for development
-    - GitHub to store project
-
-- ### Modules in GitPod Used
-    - Prettier
-    - eslint
+![screenshot](./images/drawSQL-explore-sthlm.png)
 
 ## Event model
 
@@ -75,6 +55,34 @@ created_at = models.DateTimeField(auto_now_add=True)
 owner = models.ForeignKey(User, on_delete=models.CASCADE)    
 event = models.ForeignKey(Event, related_name='attend', on_delete=models.CASCADE)    
 created_at = models.DateTimeField(auto_now_add=True)    
+
+## Testing
+
+## Technologies Used
+- ### Languages and frameworks
+
+- ### Packages Used
+    - cloudinary
+    - cloudinary-storage
+    - Pillow
+    - django-rest-framework
+    - dj-rest-auth
+    - django-filter
+    - django-allauth
+    - PyJWT
+    - psycopg2
+    - gunicorn
+
+- ### Programs and tools
+    - drawSQL
+    - GitPod for development
+    - GitHub to store project
+
+- ### Modules in GitPod Used
+    - Prettier
+    - eslint
+
+
 
 
 ## Deploying with Heroku
