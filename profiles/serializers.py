@@ -4,12 +4,17 @@ from followers.models import Follower
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """ 
+    Serializer for the profile model, includes extra fields
+    for counts.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
     events_count = serializers.ReadOnlyField()
     followers_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
+    attend_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -21,15 +26,15 @@ class ProfileSerializer(serializers.ModelSerializer):
             following = Follower.objects.filter(
                 owner=user, followed=obj.owner
             ).first()
-            # print(following)
             return following.id if following else None
         return None
     
-    """ Serializing the profile model  """
+
     class Meta:
         model = Profile
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'content', 'image', 'is_owner', 'following_id',
             'events_count', 'followers_count', 'following_count',
+            'attend_count',
         ]

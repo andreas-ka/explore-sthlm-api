@@ -5,7 +5,7 @@ from events.models import Event
 
 class Attend(models.Model):
     """
-    Attend model, related to User
+    Attend model, related to User and event
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     event = models.ForeignKey(

@@ -12,7 +12,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     body = models.TextField(blank=False)
-    social_media = models.TextField()
+    social_media = models.TextField(blank=True)
 
     class Meta:
         ordering = ['-created_at']
