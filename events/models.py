@@ -1,6 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+EVENT_CATEGORIES = (
+    ("Sport", "Sport"),
+    ("Music", "Music"),
+    ("Culture", "Culture"),
+    ("Family", "Family"),
+    ("Food", "Food"),
+    ("Shopping", "Shopping"),
+    ("Sightseeing", "Sightseeing"),
+)
 
 class Event(models.Model):
     """
@@ -14,7 +23,7 @@ class Event(models.Model):
     description = models.TextField(blank=False)
     start_date = models.DateTimeField(blank=False)
     end_date = models.DateTimeField(blank=False)
-    category = models.CharField(max_length=255, blank=False)
+    category = models.CharField(max_length=255, blank=False, choices=EVENT_CATEGORIES, default='')
     location = models.CharField(max_length=255, blank=False)
     cost = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(

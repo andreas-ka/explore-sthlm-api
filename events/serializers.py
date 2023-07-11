@@ -1,11 +1,14 @@
 from rest_framework import serializers
 from .models import Event
+from ratings.models import Rating
+
 
 
 class EventSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    rating_id = serializers.SerializerMethodField()
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     
     def validate_image(self, value):
@@ -24,6 +27,15 @@ class EventSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
+    
+    def get_rating_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            rating = Rating.objects.filter(
+                owner=user, event=obj
+            ).first()
+            return rating.id if rating else None
+        return None
 
     class Meta:
         model = Event
@@ -31,5 +43,5 @@ class EventSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'description', 'image', 'start_date',
-            'end_date', 'category', 'location', 'cost',
+            'end_date', 'category', 'location', 'cost', 'rating_id',
         ]

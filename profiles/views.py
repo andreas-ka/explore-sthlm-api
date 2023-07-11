@@ -1,7 +1,5 @@
-from django.http import Http404
-from rest_framework import generics, status
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.db.models import Count
+from rest_framework import generics, filters
 from .models import Profile
 from .serializers import ProfileSerializer
 from explore_sthlm_api.permissions import IsOwnerOrReadOnly
@@ -10,18 +8,35 @@ from explore_sthlm_api.permissions import IsOwnerOrReadOnly
 class ProfileList(generics.ListAPIView):
     """
     List all profiles
-    No need to use a create view cause profiles are created when a user is
+    No need to use a create view cause profiles are created when a user is created.
     """
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.annotate(
+        events_count = Count('owner__event', distinct=True),
+        followers_count = Count('owner__followed', distinct=True),
+        following_count = Count('owner__following', distinct=True)
+    ).order_by('-created_at')
     serializer_class = ProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'events_count',
+        'followers_count',
+        'following_count',
+        'owner__following__created_at',
+        'owner__followed__created_at',
+    ]
 
 
-class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+class ProfileDetail(generics.RetrieveUpdateAPIView):
     """ 
     Shows details views of a profile, also handling error codes.
-    Let's you get, edit, and delete a profile
+    Let's you get, edit a profile if owner
     """
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.annotate(
+        events_count = Count('owner__event', distinct=True),
+        followers_count = Count('owner__followed', distinct=True),
+        following_count = Count('owner__following', distinct=True)
+    ).order_by('-created_at')
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]

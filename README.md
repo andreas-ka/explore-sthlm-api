@@ -64,6 +64,18 @@ updated_at = models.DateTimeField(auto_now=True)
 body = models.TextField(blank=False)   
 social_media = models.TextField()    
 
+## Followers model
+
+owner = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE)     
+followed = models.ForeignKey(User, related_name='followed', on_delete=models.CASCADE)     
+created_at = models.DateTimeField(auto_now_add=True)     
+
+## Attend model
+
+owner = models.ForeignKey(User, on_delete=models.CASCADE)    
+event = models.ForeignKey(Event, related_name='attend', on_delete=models.CASCADE)    
+created_at = models.DateTimeField(auto_now_add=True)    
+
 
 ## Deploying with Heroku
 

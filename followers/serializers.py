@@ -1,18 +1,20 @@
 from django.db import IntegrityError
 from rest_framework import serializers
-from .models import Rating
+from .models import Follower
 
-class RatingSerializer(serializers.ModelSerializer):
+
+class FollowerSerializer(serializers.ModelSerializer):
     """
-    Serializer for the ratings model.
+    Serializer for the follower model
     """
-    
     owner = serializers.ReadOnlyField(source='owner.username')
+    followed_name = serializers.ReadOnlyField(source='followed.username')
     
     class Meta:
-        model = Rating
-        fields = ['id', 'owner', 'rating', 'event', 'created_at']
-        
+        model = Follower
+        fields = [
+            'id', 'owner', 'created_at', 'followed', 'followed_name'
+            ]
         
     def create(self, validated_data):
         try:
