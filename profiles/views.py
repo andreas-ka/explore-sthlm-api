@@ -36,7 +36,7 @@ class ProfileList(generics.ListAPIView):
     ]
 
 
-class ProfileDetail(generics.RetrieveUpdateAPIView):
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """ 
     Shows details views of a profile, also handling error codes.
     Let's you get, edit a profile if owner
