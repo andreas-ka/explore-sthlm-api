@@ -25,7 +25,7 @@ class Event(models.Model):
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=False)
     category = models.CharField(
-        max_length=255, blank=False, choices=EVENT_CATEGORIES, default=''
+        max_length=255, blank=False, choices=EVENT_CATEGORIES, default='Sightseeing'
         )
     event_location = models.CharField(max_length=255, blank=False)
     cost = models.DecimalField(max_digits=8, decimal_places=2)
