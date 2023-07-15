@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 EVENT_CATEGORIES = (
     ("Sport", "Sport"),
@@ -21,8 +22,8 @@ class Event(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=False)
-    start_date = models.DateTimeField(blank=False)
-    end_date = models.DateTimeField(blank=False)
+    start_date = models.DateField(blank=False)
+    end_date = models.DateField(blank=False)
     category = models.CharField(
         max_length=255, blank=False, choices=EVENT_CATEGORIES, default=''
         )

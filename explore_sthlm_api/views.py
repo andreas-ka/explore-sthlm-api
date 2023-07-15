@@ -9,7 +9,7 @@ from .settings import (
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Welcome to Explore Sthlm's API!"
+        "message": "Welcome to explore sthlms API!"
     })
 
 
