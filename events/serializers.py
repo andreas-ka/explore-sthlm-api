@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Event
 from ratings.models import Rating
+from attending.models import Attend
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -11,6 +12,9 @@ class EventSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     ratings_count = serializers.ReadOnlyField()
     reviews_count = serializers.ReadOnlyField()
+    attending_id = serializers.SerializerMethodField()
+    attending_count = serializers.ReadOnlyField()
+    average_rating = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -39,6 +43,15 @@ class EventSerializer(serializers.ModelSerializer):
             ).first()
             return rating.id if rating else None
         return None
+    
+    def get_attending_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            attend = Attend.objects.filter(
+                owner=user, event=obj
+            ).first()
+            return attend.id if attend else None
+        return None
 
     class Meta:
         model = Event
@@ -47,5 +60,6 @@ class EventSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
-            'ratings_count', 'reviews_count',
+            'ratings_count', 'reviews_count', 'attending_count',
+            'average_rating', 'attending_id',
         ]
