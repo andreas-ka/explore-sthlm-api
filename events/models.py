@@ -26,7 +26,7 @@ class Event(models.Model):
     category = models.CharField(
         max_length=255, blank=False, choices=EVENT_CATEGORIES, default=''
         )
-    location = models.CharField(max_length=255, blank=False)
+    event_location = models.CharField(max_length=255, blank=False)
     cost = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(
         upload_to='images/', default='../default_post_r8qmha', blank=True

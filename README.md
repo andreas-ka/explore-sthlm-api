@@ -1,5 +1,5 @@
 <a name="top"></a>
-![screenshot](./images/readme-logo.png)
+![screenshot](./images/readme_logo.png)
 
 ## Table of Contents
 
@@ -77,7 +77,7 @@ Engage with fellow event-goers by commenting/reviewing, rate, and sharing your f
 [Back to Top](#top)
 
 ## Database Schema
-![screenshot](./images/drawSQL-explore-sthlm.png)    
+![screenshot](./images/drawsql_explore_sthlm.png)    
 
 [Back to Top](#top)
 
@@ -93,7 +93,7 @@ description = models.TextField(blank=False)
 start_date = models.DateTimeField(blank=False)
 end_date = models.DateTimeField(blank=False)       
 category = models.CharField(max_length=255, blank=False)    
-location = models.CharField(max_length=255, blank=False)    
+event_location = models.CharField(max_length=255, blank=False)    
 cost = models.DecimalField(max_digits=8, decimal_places=2)    
 image = models.ImageField()    
 
