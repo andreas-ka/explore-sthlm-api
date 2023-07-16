@@ -1,18 +1,24 @@
-from django.db.models import Count
+from django.db.models import Count, Avg
 from django.http import Http404
 from rest_framework import generics, filters, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from .models import Event
+from ratings.models import Rating
+from attending.models import Attend
 from .serializers import EventSerializer
 from explore_sthlm_api.permissions import IsOwnerOrReadOnly
 
 
 class EventList(generics.ListCreateAPIView):
     """ List all events and checks permissions """
+    serializer_class = EventSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
     queryset = Event.objects.annotate(
         ratings_count=Count('ratings', distinct=True),
-        reviews_count=Count('review', distinct=True)
+        reviews_count=Count('review', distinct=True),
+        attend_count=Count('attend', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -31,10 +37,10 @@ class EventList(generics.ListCreateAPIView):
     ordering_fields = [
         'ratings_count',
         'reviews_count',
+        'attend_count',
         'ratings__created_at',
     ]
-    serializer_class = EventSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -47,7 +53,8 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.annotate(
         ratings_count=Count('ratings', distinct=True),
-        reviews_count=Count('review', distinct=True)
+        reviews_count=Count('review', distinct=True),
+        attend_count=Count('attend', distinct=True)
     ).order_by('-created_at')
     serializer_class = EventSerializer
     permission_classes = [IsOwnerOrReadOnly]
