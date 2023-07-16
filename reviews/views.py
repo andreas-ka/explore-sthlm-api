@@ -14,7 +14,7 @@ class ReviewList(generics.ListCreateAPIView):
     queryset = Review.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = [
-        'review'
+        'event'
         ]
 
     def perform_create(self, serializer):

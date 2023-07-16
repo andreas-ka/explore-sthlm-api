@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Event
 from ratings.models import Rating
 from attending.models import Attend
+from reviews.models import Review
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -52,6 +53,15 @@ class EventSerializer(serializers.ModelSerializer):
             ).first()
             return attend.id if attend else None
         return None
+    
+    def get_review_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            review = Review.objects.filter(
+                owner=user, event=obj
+            ).first()
+            return review.id if review else None
+        return None
 
     class Meta:
         model = Event
@@ -61,5 +71,5 @@ class EventSerializer(serializers.ModelSerializer):
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
             'ratings_count', 'reviews_count', 'attend_count',
-            'ratings_average', 'attend_id',
+            'ratings_average', 'attend_id', 'review',
         ]

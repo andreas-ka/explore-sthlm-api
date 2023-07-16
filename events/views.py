@@ -17,7 +17,7 @@ class EventList(generics.ListCreateAPIView):
     
     queryset = Event.objects.annotate(
         ratings_count=Count('ratings', distinct=True),
-        reviews_count=Count('review', distinct=True),
+        reviews_count=Count('reviews', distinct=True),
         attend_count=Count('attend', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
@@ -53,7 +53,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.annotate(
         ratings_count=Count('ratings', distinct=True),
-        reviews_count=Count('review', distinct=True),
+        review_count=Count('reviews', distinct=True),
         attend_count=Count('attend', distinct=True)
     ).order_by('-created_at')
     serializer_class = EventSerializer
