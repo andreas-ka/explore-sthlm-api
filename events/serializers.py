@@ -12,8 +12,8 @@ class EventSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     ratings_count = serializers.ReadOnlyField()
     reviews_count = serializers.ReadOnlyField()
-    attending_id = serializers.SerializerMethodField()
-    attending_count = serializers.ReadOnlyField()
+    attend_id = serializers.SerializerMethodField()
+    attend_count = serializers.ReadOnlyField()
     average_rating = serializers.ReadOnlyField()
 
     def validate_image(self, value):
@@ -44,7 +44,7 @@ class EventSerializer(serializers.ModelSerializer):
             return rating.id if rating else None
         return None
     
-    def get_attending_id(self, obj):
+    def get_attend_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
             attend = Attend.objects.filter(
@@ -60,6 +60,6 @@ class EventSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
-            'ratings_count', 'reviews_count', 'attending_count',
-            'average_rating', 'attending_id',
+            'ratings_count', 'reviews_count', 'attend_count',
+            'average_rating', 'attend_id',
         ]

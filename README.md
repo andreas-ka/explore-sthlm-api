@@ -90,8 +90,8 @@ created_at = models.DateTimeField(auto_now_add=True)
 updated_at = models.DateTimeField(auto_now=True)    
 title = models.CharField(max_length=255, blank=False)   
 description = models.TextField(blank=False)   
-start_date = models.DateTimeField(blank=False)
-end_date = models.DateTimeField(blank=False)       
+start_date = models.DateField(blank=False)
+end_date = models.DateField(blank=False)       
 category = models.CharField(max_length=255, blank=False)    
 event_location = models.CharField(max_length=255, blank=False)    
 cost = models.DecimalField(max_digits=8, decimal_places=2)    
@@ -212,6 +212,7 @@ I refer to [TESTING.md](/TESTING.md) for all my tests in this project.
     - PyJWT
     - psycopg2
     - gunicorn
+    - datetime
 
 - ### Programs and tools
     - drawSQL
