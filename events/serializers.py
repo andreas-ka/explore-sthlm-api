@@ -13,6 +13,7 @@ class EventSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     ratings_count = serializers.ReadOnlyField()
     reviews_count = serializers.ReadOnlyField()
+    review_id = serializers.SerializerMethodField()
     attend_id = serializers.SerializerMethodField()
     attend_count = serializers.ReadOnlyField()
     ratings_average = serializers.ReadOnlyField()
@@ -71,5 +72,5 @@ class EventSerializer(serializers.ModelSerializer):
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
             'ratings_count', 'reviews_count', 'attend_count',
-            'ratings_average', 'attend_id', 'review',
+            'ratings_average', 'attend_id', 'review_id',
         ]
