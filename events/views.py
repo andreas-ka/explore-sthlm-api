@@ -36,7 +36,6 @@ class EventList(generics.ListCreateAPIView):
     ]
     ordering_fields = [
         'comments_count',
-        'reviews_count',
         'attend_count',
         'ratings__created_at',
     ]
