@@ -29,6 +29,9 @@ class EventList(generics.ListCreateAPIView):
         'owner__followed__owner__profile',
         'ratings__owner__profile',
         'owner__profile',
+        'category',
+        'attend__owner__profile',
+        'start_date',
     ]
     search_fields = [
         'owner__username',
