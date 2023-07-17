@@ -64,5 +64,5 @@ class EventSerializer(serializers.ModelSerializer):
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
             'ratings_count', 'comments_count', 'attend_count',
-            'ratings_average', 'attend_id', 
+            'ratings_average', 'attend_id', 'review_id'
         ]
