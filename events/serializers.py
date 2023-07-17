@@ -12,7 +12,7 @@ class EventSerializer(serializers.ModelSerializer):
     rating_id = serializers.SerializerMethodField()
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     ratings_count = serializers.ReadOnlyField()
-    reviews_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
     review_id = serializers.SerializerMethodField()
     attend_id = serializers.SerializerMethodField()
     attend_count = serializers.ReadOnlyField()
@@ -55,14 +55,6 @@ class EventSerializer(serializers.ModelSerializer):
             return attend.id if attend else None
         return None
     
-    def get_review_id(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            review = Review.objects.filter(
-                owner=user, event=obj
-            ).first()
-            return review.id if review else None
-        return None
 
     class Meta:
         model = Event
@@ -71,6 +63,6 @@ class EventSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
-            'ratings_count', 'reviews_count', 'attend_count',
-            'ratings_average', 'attend_id', 'review_id',
+            'ratings_count', 'comments_count', 'attend_count',
+            'ratings_average', 'attend_id', 
         ]
