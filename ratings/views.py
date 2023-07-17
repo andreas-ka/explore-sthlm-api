@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from explore_sthlm_api.permissions import IsOwnerOrReadOnly
 from ratings.models import Rating
 from ratings.serializers import RatingSerializer
+from django.db.models import Avg
 
 
 class RatingList(generics.ListCreateAPIView):

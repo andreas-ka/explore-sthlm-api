@@ -19,6 +19,7 @@ class EventList(generics.ListCreateAPIView):
         ratings_count=Count('ratings', distinct=True),
         comments_count=Count('comment', distinct=True),
         attend_count=Count('attend', distinct=True),
+        rating_average=Avg('ratings__rating', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -41,6 +42,7 @@ class EventList(generics.ListCreateAPIView):
         'comments_count',
         'attend_count',
         'ratings__created_at',
+        'rating_average',
     ]
     
 
