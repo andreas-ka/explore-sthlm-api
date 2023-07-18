@@ -58,7 +58,8 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.annotate(
         ratings_count=Count('ratings', distinct=True),
         comments_count=Count('comment', distinct=True),
-        attend_count=Count('attend', distinct=True)
+        attend_count=Count('attend', distinct=True),
+        rating_average=Avg('ratings__rating', distinct=True),
     ).order_by('-created_at')
     serializer_class = EventSerializer
     permission_classes = [IsOwnerOrReadOnly]
