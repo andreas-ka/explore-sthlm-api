@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from events.models import Event
 
 class Rating(models.Model):
+    """ 
+    Rating model with related name ratings
+    """
     rating = models.IntegerField()
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='ratings')
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

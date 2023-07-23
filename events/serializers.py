@@ -6,6 +6,9 @@ from reviews.models import Review
 
 
 class EventSerializer(serializers.ModelSerializer):
+    """
+    Event serializer with counts and average
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')

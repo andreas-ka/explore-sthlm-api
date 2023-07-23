@@ -5,6 +5,9 @@ from .serializers import FollowerSerializer
 
 
 class FollowerList(generics.ListCreateAPIView):
+    """
+    Follower list view
+    """
     serializer_class = FollowerSerializer
     queryset = Follower.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -14,6 +17,9 @@ class FollowerList(generics.ListCreateAPIView):
         
         
 class FollowerDetailList(generics.RetrieveDestroyAPIView):
+    """ 
+    Follower detail view
+    """
     serializer_class = FollowerSerializer
     queryset = Follower.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

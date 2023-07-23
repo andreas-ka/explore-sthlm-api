@@ -1,4 +1,6 @@
 <a name="top"></a>
+# Milestone project 5 Backend
+
 ![screenshot](./images/readme_logo.png)
 
 ## Table of Contents
@@ -27,9 +29,9 @@ Explore Sthlm, the website for people living in the capital city of Sweden but a
 
 The website allows users to explore a diverse range of events taking place across the city. From music concerts and art exhibitions to sports tournaments and food festivals, there's always something exciting to discover. With a user-friendly interface and powerful search options, finding events that match your interests has never been easier.
 
-Not only can you explore events, but you can also share promote your events to a wider audience. Whether you're organizing a small gathering or a large-scale festival, Explore Sthlm offers a space to showcase your event details and attract attendees.
+Not only can you explore events, but you can also share and promote your events to a broader audience. Whether organizing a small gathering or a large-scale festival, Explore Sthlm offers a space to showcase your event details and attract attendees.
 
-Engage with fellow event-goers by commenting/reviewing, rate, and sharing your favorite events. Connect with like-minded individuals, share recommendations, and build a vibrant community of event enthusiasts.
+Engage with fellow event-goers by commenting/reviewing, rating, and sharing your favorite events. Connect with like-minded individuals, share recommendations, and build a vibrant community of event enthusiasts.
 
 [Back to Top](#top)
 
@@ -38,12 +40,12 @@ Engage with fellow event-goers by commenting/reviewing, rate, and sharing your f
 [Back to Top](#top)
 
 ## User Stories and Tasks
-- All User Storys for this backend API project. These are also in my project on GitHub that i made for this [project.](https://github.com/users/andreas-ka/projects/8)
+- All User Storys for this backend API project. These are also in my project on GitHub that I made for this [project.](https://github.com/users/andreas-ka/projects/8)
 
 ### Profile
-- [x] As a developer/superuser I can view a list of profiles so that I can see all profiles thats been created. [#1](https://github.com/andreas-ka/explore-sthlm-api/issues/1)        
-- [x] As a developer/superuser I can view the details of one profile so that I can see individual profile data. [#2](https://github.com/andreas-ka/explore-sthlm-api/issues/2)       
-- [x] As a developer/superuser I can edit a profile when I am logged in so that update my personal information. [#3](https://github.com/andreas-ka/explore-sthlm-api/issues/3)      
+- [x] As a developer/superuser I can view a list of profiles to see all created profiles. [#1](https://github.com/andreas-ka/explore-sthlm-api/issues/1)        
+- [x] As a developer/superuser, I can view the details of one profile to see individual profile data. [#2](https://github.com/andreas-ka/explore-sthlm-api/issues/2)       
+- [x] As a developer/superuser I can edit a profile when logged in to update my personal information. [#3](https://github.com/andreas-ka/explore-sthlm-api/issues/3)      
 - [x] As a developer/superuser I can delete a profile i own* so that I remove my account from the API. [#4](https://github.com/andreas-ka/explore-sthlm-api/issues/4)      
 - [x] As a developer/superuser I can login and logout so that I can edit and delete data i have created. [#9](https://github.com/andreas-ka/explore-sthlm-api/issues/9)       
 
@@ -113,14 +115,14 @@ event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='ratings
 owner = models.ForeignKey(User, on_delete=models.CASCADE)   
 created_at = models.DateTimeField(auto_now_add=True)  
 
-## Review model
+## ~~Review model~~ ( not implemented)
 
-owner = models.ForeignKey(User, on_delete=models.CASCADE)    
-review = models.ForeignKey(Event, on_delete=models.CASCADE)    
-created_at = models.DateTimeField(auto_now_add=True)   
-updated_at = models.DateTimeField(auto_now=True)   
-body = models.TextField(blank=False)   
-social_media = models.TextField()    
+~~owner = models.ForeignKey(User, on_delete=models.CASCADE)~~    
+~~review = models.ForeignKey(Event, on_delete=models.CASCADE)~~    
+~~created_at = models.DateTimeField(auto_now_add=True)~~     
+~~updated_at = models.DateTimeField(auto_now=True)~~     
+~~body = models.TextField(blank=False)~~      
+~~social_media = models.TextField()~~      
 
 ## Followers model
 
@@ -181,7 +183,7 @@ created_at = models.DateTimeField(auto_now_add=True)
 
 ## Agile Workflow
 ### Github Project Board
-I utilized the Kanban project board on GitHub to develop this API using Agile principles right from the start. The project board allowed me to create user stories that served as guidelines for me to follow and test during the development process.
+I utilized the Kanban project board on GitHub to develop this API using Agile principles right from the start. The project board allowed me to create user stories that were guidelines for me to follow and test during the development process.
 
 To effectively manage the project, I created a Milestone for each app (model) I developed. These milestones helped me outline the individual sprints of the project. Within each milestone, I included the relevant user stories for the developers to work on. By adopting this approach, I ensured a structured and iterative development process.
 ![screenshot](./images/user_storys_kanban.png)    
@@ -233,8 +235,8 @@ It's a prerequisite that you have Cloudinary account before deployment.
 A Cloudinary account, create one for free at https://cloudinary.com.
 
 
-1. Log in to Heroku and if not taken there automatically, navigate to your personal app dashboard.
-2. At the top of the page locate the 'New' drop down, click it and then select 'Create new app'.
+1. Log in to Heroku; if not taken there automatically, navigate to your personal app dashboard.
+2. At the top of the page, locate the 'New' drop-down, click it and then select 'Create new app.'
 3. Give your application a unique name, select a region appropriate to your location and click the 'Create app' button.
 4. Your app should now be created, so from the menu towards the top of the page select the 'Resources' section.
 5. Search for 'Heroku Postgres' under the Add-ons section and add it.
@@ -255,7 +257,8 @@ A Cloudinary account, create one for free at https://cloudinary.com.
 
 
 ## Credits
-- My awesome wife Sandra who is a copywriter by profession who helped me with the Objective text.
-- *HUGE* credit to Code Institute and their tutorial on how to build an API, loads of code from that.    
+- My awesome wife Sandra, a professional copywriter, helped me with the Objective text.
+- *HUGE* credit to Code Institute and their tutorial on how to build an API; loads of code from that.    
+- My Mentor @CluelessBiker for awesome support and feedback.
 
 [Back to Top](#top)
