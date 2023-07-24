@@ -116,6 +116,7 @@ owner = models.ForeignKey(User, on_delete=models.CASCADE)
 created_at = models.DateTimeField(auto_now_add=True)  
 
 ## ~~Review model~~ ( not implemented)
+- A model i have kept for future updates, due to time constraints i have not had the opportunity to implement it for now.
 
 ~~owner = models.ForeignKey(User, on_delete=models.CASCADE)~~    
 ~~review = models.ForeignKey(Event, on_delete=models.CASCADE)~~    

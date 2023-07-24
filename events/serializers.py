@@ -14,11 +14,11 @@ class EventSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     rating_id = serializers.SerializerMethodField()
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
-    ratings_count = serializers.ReadOnlyField()
+    ratings_count = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
     attend_id = serializers.SerializerMethodField()
     attend_count = serializers.ReadOnlyField()
-    rating_average = serializers.ReadOnlyField()
+    rating_average = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -34,6 +34,19 @@ class EventSerializer(serializers.ModelSerializer):
                 'Sorry the image width can not be larger than 4096px!'
             )
         return value
+    
+    def get_rating_average(self, obj):
+        # Calculate the average rating
+        ratings = obj.ratings.all()
+        count = ratings.count()
+        if count > 0:
+            total_sum = sum(rating.rating for rating in ratings)
+            return total_sum / count
+        return None
+
+    def get_ratings_count(self, obj):
+        # Get the count of ratings
+        return obj.ratings.count()
 
     def get_is_owner(self, obj):
         request = self.context['request']
