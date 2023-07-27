@@ -5,6 +5,15 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 
+# To be able to get the Google maps API key from the backend to react
+@api_view(['GET'])
+def get_google_maps_api_key(request):
+    api_key = os.environ.get('REACT_APP_GOOGLE_MAPS_API_KEY')
+    if api_key:
+        return Response({'apiKey': api_key})
+    else:
+        return Response({'message': 'API key not found'}, status=500)
+
 
 @api_view()
 def root_route(request):
