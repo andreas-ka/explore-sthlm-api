@@ -19,6 +19,7 @@ class EventSerializer(serializers.ModelSerializer):
     attend_id = serializers.SerializerMethodField()
     attend_count = serializers.ReadOnlyField()
     rating_average = serializers.SerializerMethodField()
+    rating = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -79,5 +80,5 @@ class EventSerializer(serializers.ModelSerializer):
             'title', 'description', 'image', 'start_date',
             'end_date', 'category', 'event_location', 'cost', 'rating_id',
             'ratings_count', 'comments_count', 'attend_count',
-            'rating_average', 'attend_id',
+            'rating_average', 'attend_id', 'rating',
         ]
