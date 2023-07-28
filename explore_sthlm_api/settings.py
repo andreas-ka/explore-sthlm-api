@@ -65,6 +65,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
+    'explore-sthlm-231a49fd8022.herokuapp.com',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
