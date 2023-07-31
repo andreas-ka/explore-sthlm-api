@@ -14,7 +14,7 @@ EVENT_CATEGORIES = (
 
 class Event(models.Model):
     """
-    Event model, related to 'owner', i.e. a User instance.
+    Event model, related to 'owner'.
     Default image set so that we can always reference image.url.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

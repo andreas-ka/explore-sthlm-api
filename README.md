@@ -41,6 +41,7 @@ Engage with fellow event-goers by commenting/reviewing, rating, and sharing your
 
 ## User Stories and Tasks
 - All User Storys for this backend API project. These are also in my project on GitHub that I made for this [project.](https://github.com/users/andreas-ka/projects/8)
+- I have used Iterations in this project and all iterations 1 and 2 for the backend are visibile in my frontend repository.
 
 ### Profile
 - [x] As a developer/superuser I can view a list of profiles to see all created profiles. [#1](https://github.com/andreas-ka/explore-sthlm-api/issues/1)        
@@ -255,6 +256,23 @@ A Cloudinary account, create one for free at https://cloudinary.com.
 11. Once the repository is found click 'Connect'.
 12. At the bottom of the page find the section named 'Manual deploy', select the 'main' branch in the drop down and click the 'Deploy' button.
 13. Once deployment is complete, click the 'View' button to load the URL of the deployed application.
+
+
+#### You can for fork the repository by following these steps:
+
+1. Go to the GitHub repository.   
+2. Click on Fork button in upper right hand corner.   
+3. Wait for the forking process to complete. Once done, you will have a copy of the repository in your GitHub account.    
+
+#### You can clone the repository by following these steps: 
+
+1. Go to the GitHub repository.   
+2. Locate the Code button above the list of files and click it.   
+3. Select your preferred method for cloning: HTTPS, SSH, or GitHub CLI, and click the copy button to copy the repository URL to your clipboard.   
+4. Open Git Bash (or your preferred terminal).   
+5. Change the current working directory to the location where you want the cloned directory to be created.   
+6. Type the command **'git clone'** followed by the URL you copied in step 3. The command should look like this: **git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY**.    
+7. Press Enter to create your local clone.   
 
 
 ## Credits

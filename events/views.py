@@ -37,6 +37,7 @@ class EventList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
+        'start_date'
     ]
     ordering_fields = [
         'comments_count',
