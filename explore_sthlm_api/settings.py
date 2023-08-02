@@ -66,6 +66,7 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
     'explore-sthlm-231a49fd8022.herokuapp.com',
+    '8000-andreaska-exploresthlma-06w5yaz8e8v.ws-eu102.gitpod.io',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -148,14 +149,14 @@ WSGI_APPLICATION = 'explore_sthlm_api.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DEV' in os.environ:
-     DATABASES = {
-         'default': {
-             'ENGINE': 'django.db.backends.sqlite3',
-             'NAME': BASE_DIR / 'db.sqlite3',
-         }
+    DATABASES = {
+       'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+        }
      }
 else:
-     DATABASES = {
+    DATABASES = {
          'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
      }
 

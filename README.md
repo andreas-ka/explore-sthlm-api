@@ -3,6 +3,8 @@
 
 ![screenshot](./images/readme_logo.png)
 
+Deployed website: [Link](https://explore-sthlm-231a49fd8022.herokuapp.com/)
+
 ## Table of Contents
 
 - [Objective](#objective)
