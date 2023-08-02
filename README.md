@@ -3,7 +3,7 @@
 
 ![screenshot](./images/readme_logo.png)
 
-Deployed website: [Link](https://explore-sthlm-231a49fd8022.herokuapp.com/)
+Deployed website: [Link](https://explore-sthlm-ffc7a7853efc.herokuapp.com/)
 
 ## Table of Contents
 
