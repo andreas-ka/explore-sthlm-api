@@ -66,7 +66,6 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
     'explore-sthlm-231a49fd8022.herokuapp.com',
-    '8000-andreaska-exploresthlma-06w5yaz8e8v.ws-eu102.gitpod.io',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
