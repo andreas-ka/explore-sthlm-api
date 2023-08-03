@@ -7,7 +7,10 @@ from reviews.models import Review
 
 class EventSerializer(serializers.ModelSerializer):
     """
-    Event serializer with counts and average
+    Event serializer with counts and average.
+    rating_average is a future feature i will implement,
+    will use Djangos Avg for that, better option then the
+    current one.
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()

@@ -11,7 +11,10 @@ from explore_sthlm_api.permissions import IsOwnerOrReadOnly
 
 
 class EventList(generics.ListCreateAPIView):
-    """ List all events and checks permissions """
+    """ List all events and checks permissions
+    rating_average is not used now, will be a better option
+    in future then current one. Thats why i kept it.
+    """
     serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     

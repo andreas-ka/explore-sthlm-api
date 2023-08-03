@@ -3,7 +3,7 @@
 
 ![screenshot](./images/readme_logo.png)
 
-Deployed website: [Link](https://explore-sthlm-ffc7a7853efc.herokuapp.com/)
+## Deployed website: [Link](https://explore-sthlm-ffc7a7853efc.herokuapp.com/)
 
 ## Table of Contents
 
@@ -22,6 +22,7 @@ Deployed website: [Link](https://explore-sthlm-ffc7a7853efc.herokuapp.com/)
     - [Followers Data](#followers-data)
 - [Agile Workflow](#agile-workflow)
 - [Testing](#testing)
+- [Future features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Deploying with Heroku](#deploying-with-heroku)
 - [Credits](#credits)
@@ -37,9 +38,6 @@ Engage with fellow event-goers by commenting/reviewing, rating, and sharing your
 
 [Back to Top](#top)
 
-## Links to Deployed Project
-
-[Back to Top](#top)
 
 ## User Stories and Tasks
 - All User Storys for this backend API project. These are also in my project on GitHub that I made for this [project.](https://github.com/users/andreas-ka/projects/8)
@@ -197,7 +195,18 @@ To effectively manage the project, I created a Milestone for each app (model) I 
 
 
 ## Testing
-I refer to [TESTING.md](/TESTING.md) for all my tests in this project.
+I refer to [TESTING.md](/TESTING.md) for all my tests in this project.   
+
+## Future features
+
+- NOTE! Regarding rating_average serializer and view i have decided to keep it, this feature will be used 
+when i have more time on the project, i think it will be a better option than i have now to
+calculate average from ratings on events.    
+
+- NOTE! Same as rating_average i have kept Reviews model for a future update to the page, due to time
+constraints i was not able to implement that feature now.    
+
+[Back to Top](#top)
 
 ## Technologies Used
 
